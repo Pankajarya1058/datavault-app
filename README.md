@@ -73,7 +73,7 @@ Install the following software before starting:
 Clone the repository:
 
 ```bash
-git clone https://github.com/Pankajarya1058/test-github-action.git
+git clone https://github.com/Pankajarya1058/datavault-app.git
 ```
 
 Move into the project directory:
