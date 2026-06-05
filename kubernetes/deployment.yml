@@ -34,9 +34,15 @@ spec:
         - configMapRef:
             name: db-config
 
+        startupProbe:
+          tcpSocket:
+            port: 3000
+          failureThreshold: 30
+          periodSeconds: 10
+
         readinessProbe:
           tcpSocket:
-            port: 80
+            port: 3000
           initialDelaySeconds: 10
           periodSeconds: 5
           timeoutSeconds: 2
@@ -44,7 +50,7 @@ spec:
 
         livenessProbe:
           tcpSocket:
-            port: 80
+            port: 3000
           initialDelaySeconds: 30
           periodSeconds: 10
           timeoutSeconds: 2
