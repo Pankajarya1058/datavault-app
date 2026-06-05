@@ -248,6 +248,7 @@ Before running the CI/CD pipeline, add the following repository secrets:
 |------------|-------------|
 | DOCKER_USERNAME | Docker Hub Username |
 | DOCKER_PASSWORD | Docker Hub Password or Access Token |
+| DB_PASSWORD     | Database Password   |
 
 ### Steps
 
