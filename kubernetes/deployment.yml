@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datavault-app
+  namespace: datavault
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: datavault-app
+  template:
+    metadata:
+      labels:
+        app: datavault-app
+    spec:
+      containers:
+      - name: datavault-app
+        image: datavault-app:1
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: MYSQL_ROOT_PASSWORD
+        envFrom:
+        - configMapRef:
+            name: db-config
