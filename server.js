@@ -15,7 +15,7 @@ const basePool = mariadb.createPool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
   user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  password: process.env.MYSQL_ROOT_PASSWORD,
   connectionLimit: 5
 });
 
@@ -55,8 +55,8 @@ async function initDB() {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: 'datavault',
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.DB_NAME,
     connectionLimit: 5
   });
 }
