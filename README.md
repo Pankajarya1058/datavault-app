@@ -362,6 +362,51 @@ GitHub Actions will automatically:
 
 ---
 
+## Access the Application
+
+After deploying the application and services, access the DataVault application using the NodePort service:
+
+```text
+http://<kind-node-ip>:30003
+```
+
+### Find the Kind Node IP
+
+Run:
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' kind-control-plane
+```
+
+Example output:
+
+```text
+172.18.0.2
+```
+
+Access the application:
+
+```text
+http://172.18.0.2:30003
+```
+
+### Verify the Service
+
+```bash
+kubectl get svc -n datavault
+```
+
+Example:
+
+```text
+NAME                    TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+datavault-app-service   NodePort   10.96.10.100   <none>        80:30003/TCP   10m
+```
+
+In this example, the application is available on NodePort `30003`.
+
+---
+
 # Troubleshooting
 
 Check Pods:
