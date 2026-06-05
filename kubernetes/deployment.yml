@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: datavault-app
-        image: datavault-app:4
+        image: datavault-app:8
         ports:
         - containerPort: 3000
         env:
